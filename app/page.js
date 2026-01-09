@@ -174,7 +174,7 @@ function shuffleArray(array) {
 }
 
 // Generate checkpoints in the maze
-function generateCheckpoints(maze, count = 4) {
+function generateCheckpoints(maze, count = 8) {
   const checkpoints = [];
   const paths = [];
 
