@@ -174,7 +174,7 @@ function shuffleArray(array) {
 }
 
 // Generate checkpoints in the maze
-function generateCheckpoints(maze, count = 8) {
+function generateCheckpoints(maze, count = 10) {
   const checkpoints = [];
   const paths = [];
 
@@ -235,6 +235,49 @@ function generateMaze(rows, cols) {
 
   carve(1, 1);
   maze[rows - 2][cols - 2] = 0; // exit
+  return maze;
+}
+
+// Regenerate maze paths while keeping checkpoints fixed
+function regenerateMazePaths(existingCheckpoints, rows, cols) {
+  const maze = Array.from({ length: rows }, () => Array(cols).fill(1)); // 1 = wall, 0 = path
+  const directions = [
+    [0, 2],
+    [0, -2],
+    [2, 0],
+    [-2, 0],
+  ];
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function carve(r, c) {
+    maze[r][c] = 0;
+    shuffle(directions).forEach(([dr, dc]) => {
+      const nr = r + dr;
+      const nc = c + dc;
+      if (nr > 0 && nc > 0 && nr < rows - 1 && nc < cols - 1) {
+        if (maze[nr][nc] === 1) {
+          maze[r + dr / 2][c + dc / 2] = 0;
+          carve(nr, nc);
+        }
+      }
+    });
+  }
+
+  carve(1, 1);
+  maze[rows - 2][cols - 2] = 0; // exit
+
+  // Preserve checkpoint positions as paths
+  existingCheckpoints.forEach((checkpoint) => {
+    maze[checkpoint.r][checkpoint.c] = 0;
+  });
+
   return maze;
 }
 
@@ -349,6 +392,17 @@ export default function MazeGame() {
       setShowQuestion(false);
       setCurrentQuestion(null);
       setSelectedAnswer(null);
+
+      // Check if 8 checkpoints have been collected, regenerate maze paths
+      const updatedCollectedCount = collectedCheckpoints.length + 1;
+      if (updatedCollectedCount % 8 === 0) {
+        const newMaze = regenerateMazePaths(checkpoints, ROWS, COLS);
+        setMaze(newMaze);
+        setMessage(
+          `✨ Path regenerated! ${updatedCollectedCount} checkpoints reached!`
+        );
+        setTimeout(() => setMessage(""), 3000);
+      }
     } else {
       // Wrong answer - game over or penalty
       alert("Wrong answer! Try again.");
