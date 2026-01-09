@@ -258,7 +258,7 @@ export default function MazeGame() {
   const [showQuestion, setShowQuestion] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const ADMIN_PASSWORD = "admin123";
+  const ADMIN_PASSWORD = "Ko$123#ksac";
   const VIEWPORT_RANGE = 1; // How far the player can see in each direction
 
   // Initialize checkpoints when maze changes
