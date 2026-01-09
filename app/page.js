@@ -9,103 +9,156 @@ const COLS = 25;
 // Question bank for checkpoints
 const QUESTIONS = [
   {
-    question: "What is 15 × 8?",
-    options: ["120", "115", "125", "130"],
-    correct: 0,
-  },
-  {
-    question: "What is the capital of France?",
-    options: ["London", "Berlin", "Paris", "Madrid"],
+    question:
+      "Which data structure is best suited for implementing a LRU cache?",
+    options: [
+      "Stack",
+      "Queue",
+      "HashMap + Doubly Linked List",
+      "Binary Search Tree",
+    ],
     correct: 2,
   },
   {
-    question: "What is 144 ÷ 12?",
-    options: ["11", "12", "13", "14"],
-    correct: 1,
-  },
-  {
-    question: "Which planet is known as the Red Planet?",
-    options: ["Venus", "Mars", "Jupiter", "Saturn"],
-    correct: 1,
-  },
-  {
-    question: "What is 7³ (7 cubed)?",
-    options: ["343", "294", "147", "216"],
-    correct: 0,
-  },
-  {
-    question: "What is the square root of 169?",
-    options: ["11", "12", "13", "14"],
+    question:
+      "What is the primary purpose of virtual memory in an operating system?",
+    options: [
+      "Increase CPU speed",
+      "Store temporary files",
+      "Allow programs to use more memory than physically available",
+      "Improve network performance",
+    ],
     correct: 2,
   },
   {
-    question: "How many continents are there?",
-    options: ["5", "6", "7", "8"],
+    question: "Which HTTP method is idempotent?",
+    options: ["POST", "PATCH", "PUT", "CONNECT"],
     correct: 2,
   },
   {
-    question: "What is 25% of 200?",
-    options: ["25", "50", "75", "100"],
-    correct: 1,
-  },
-  {
-    question: "What is the capital of Japan?",
-    options: ["Seoul", "Beijing", "Tokyo", "Bangkok"],
+    question:
+      "Which layer of the OSI model is responsible for encryption and compression?",
+    options: ["Transport", "Session", "Presentation", "Application"],
     correct: 2,
   },
   {
-    question: "What is 9 × 9?",
-    options: ["72", "81", "90", "99"],
-    correct: 1,
-  },
-  {
-    question: "How many sides does a hexagon have?",
-    options: ["5", "6", "7", "8"],
-    correct: 1,
-  },
-  {
-    question: "What is the freezing point of water in Celsius?",
-    options: ["-10°C", "0°C", "10°C", "32°C"],
-    correct: 1,
-  },
-  {
-    question: "What is 144 - 89?",
-    options: ["45", "55", "65", "75"],
-    correct: 1,
-  },
-  {
-    question: "Which ocean is the largest?",
-    options: ["Atlantic", "Indian", "Arctic", "Pacific"],
+    question:
+      "In SQL, which command is used to remove all rows from a table but keep the table structure?",
+    options: ["DROP", "DELETE", "REMOVE", "TRUNCATE"],
     correct: 3,
   },
   {
-    question: "What is 8 × 12?",
-    options: ["84", "96", "102", "108"],
+    question:
+      "What is the time complexity of searching an element in a balanced binary search tree?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
     correct: 1,
   },
   {
-    question: "How many hours are in 2 days?",
-    options: ["24", "36", "48", "60"],
+    question: "Which of the following is not a NoSQL database?",
+    options: ["MongoDB", "Cassandra", "Redis", "PostgreSQL"],
+    correct: 3,
+  },
+  {
+    question: "What does DNS primarily do?",
+    options: [
+      "Encrypt data",
+      "Route packets",
+      "Translate domain names to IP addresses",
+      "Authenticate users",
+    ],
     correct: 2,
   },
   {
-    question: "What is the square root of 64?",
-    options: ["6", "7", "8", "9"],
-    correct: 2,
-  },
-  {
-    question: "What is 15 + 27?",
-    options: ["40", "42", "44", "46"],
+    question:
+      "In Git, which command is used to combine multiple commits into one?",
+    options: ["git merge", "git rebase", "git stash", "git reset"],
     correct: 1,
   },
   {
-    question: "How many degrees are in a right angle?",
-    options: ["45°", "60°", "90°", "180°"],
+    question: "Which programming paradigm does React.js primarily follow?",
+    options: [
+      "Procedural",
+      "Object-Oriented",
+      "Declarative",
+      "Functional only",
+    ],
     correct: 2,
   },
   {
-    question: "What is 100 ÷ 4?",
-    options: ["20", "25", "30", "35"],
+    question: "What is a deadlock in an operating system?",
+    options: [
+      "When CPU is idle",
+      "When two processes wait indefinitely for each other",
+      "When a process finishes execution",
+      "When memory is full",
+    ],
+    correct: 1,
+  },
+  {
+    question: "Which of the following is used to style web pages?",
+    options: ["HTML", "JavaScript", "CSS", "PHP"],
+    correct: 2,
+  },
+  {
+    question: "What is the default port number for HTTPS?",
+    options: ["21", "80", "443", "8080"],
+    correct: 2,
+  },
+  {
+    question:
+      "Which algorithm is commonly used for shortest path in graphs with non-negative weights?",
+    options: ["DFS", "BFS", "Dijkstra's Algorithm", "Kruskal's Algorithm"],
+    correct: 2,
+  },
+  {
+    question: "What is the purpose of Docker?",
+    options: [
+      "Code compilation",
+      "Virtualization at hardware level",
+      "Containerization of applications",
+      "Database management",
+    ],
+    correct: 2,
+  },
+  {
+    question: "Which type of memory is non-volatile?",
+    options: ["RAM", "Cache", "Register", "ROM"],
+    correct: 3,
+  },
+  {
+    question: "What does API stand for?",
+    options: [
+      "Advanced Programming Interface",
+      "Application Programming Interface",
+      "Automated Program Interaction",
+      "Application Process Integration",
+    ],
+    correct: 1,
+  },
+  {
+    question: "Which of the following best describes Cloud Computing?",
+    options: [
+      "Running applications only on local machines",
+      "Sharing hardware without internet",
+      "On-demand delivery of computing resources over the internet",
+      "Offline storage system",
+    ],
+    correct: 2,
+  },
+  {
+    question:
+      "Which of the following is a synchronous programming language feature?",
+    options: ["Callback", "Promise", "Blocking I/O", "Event Listener"],
+    correct: 2,
+  },
+  {
+    question: "What is the main purpose of indexing in databases?",
+    options: [
+      "Increase storage size",
+      "Reduce query execution time",
+      "Improve security",
+      "Normalize data",
+    ],
     correct: 1,
   },
 ];
